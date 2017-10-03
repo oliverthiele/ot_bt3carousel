@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<head>
+	<meta charset="utf-8">
+	<title>Template: Bootstrap3 Carousel</title>
+</head>
+<body>
+
+<!-- Default.html is used from EXT:fluid_styled_content (TYPO3 8.7 LTS) -->
+<f:layout name="Default" />
+
+<f:section name="Main">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<f:for each="{files}" as="file" iteration="fileIterator">
+			<li data-target="#carousel-example-generic" data-slide-to="{fileIterator.index}"  class="{f:if(condition: '{fileIterator.isFirst}', then: ' active' )}"></li>
+			</f:for>
+		</ol>
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<f:for each="{files}" as="file" iteration="fileIterator">
+				<div class="item{f:if(condition: '{fileIterator.isFirst}', then: ' active' )}">
+					<figure>
+						<picture>
+							<source srcset="{f:uri.image(image: file, cropVariant:'slider', width: '767')}" media="(max-device-width: 767px)" />
+							<source srcset="{f:uri.image(image: file, cropVariant:'slider', width: '1170')}" media="(min-device-width:768px)" />
+							<f:image class="img-responsive" image="{file}" cropVariant="slider" width="1170"/>
+						</picture>
+						<f:if condition="{file.properties.description}">
+							<figcaption class="carousel-caption">
+								{file.properties.description}
+							</figcaption>
+						</f:if>
+					</figure>
+				</div>
+			</f:for>
+		</div>
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only"><f:translate id="previous" extensionName="ot_bt3carousel" default="Previous" /></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only"><f:translate id="next" extensionName="ot_bt3carousel" default="Next" /></span>
+		</a>
+	</div>
+</f:section>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en"
+		  target-language="de"
+		  datatype="plaintext"
+		  original="messages"
+		  date="2017-09-20T07:36:46Z"
+		  product-name="ot_bt3carousel">
+		<header/>
+		<body>
+			<trans-unit id="next">
+				<source>Next</source>
+				<target>Nächstes</target>
+			</trans-unit>
+			<trans-unit id="previous">
+				<source>Previous</source>
+				<target>Vorheriges</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

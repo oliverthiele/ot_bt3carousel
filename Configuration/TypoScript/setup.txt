@@ -1,0 +1,38 @@
+tt_content {
+
+	/**
+	* Better use a copy, references (=<) will not work in all cases.
+	* Example for a possible loading order:
+	* templateRootPaths {
+	*    0 = EXT:fluid_styled_content/Resources/Private/Templates/
+	*    10 = EXT:ot_bt3carousel/Resources/Private/Templates
+	*    20 = EXT:ot_bootstrap3/Resources/Private/Templates/Content/
+	*    30 = EXT:ot_themeextension/Resources/Private/Templates/Content/
+	*    40 = EXT:ot_customization/Resources/Private/Templates/Content/
+	* }
+	*/
+
+	# for TYPO3 Version 7.6.x use lib.fluidContent
+	ot_bt3carousel < lib.contentElement
+	ot_bt3carousel {
+		templateRootPaths {
+			10 = EXT:ot_bt3carousel/Resources/Private/Templates
+		}
+
+		layoutRootPaths {
+			10 = EXT:ot_bt3carousel/Resources/Private/Layouts
+		}
+
+		partialRootPaths {
+			10 = EXT:ot_bt3carousel/Resources/Private/Partials
+		}
+
+		templateName = Bt3Carousel
+		dataProcessing {
+			10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+			10 {
+				references.fieldName = assets
+			}
+		}
+	}
+}
